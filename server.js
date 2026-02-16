@@ -39,9 +39,13 @@ mongoose.connect(MONGO_URI, {
   });
 
 app.use("/api", eventRoutes);
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
 
 // Dynamic port ← this is the key change
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
